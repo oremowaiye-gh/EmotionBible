@@ -3,9 +3,13 @@ package com.example.emotions.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "bible_verses")
+@Table(name = "bible_verse")
 
 public class BibleVerse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private Emotions emotion;

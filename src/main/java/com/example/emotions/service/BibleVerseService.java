@@ -30,5 +30,9 @@ public class BibleVerseService {
     public BibleVerse addBibleVerse(BibleVerse bibleVerse) {
         return repository.save(bibleVerse);
     }
+    public BibleVerse getRandomVerseByEmotion(Emotions emotion) {
+        List<BibleVerse> verses = repository.findRandomByEmotion(emotion);
+        return verses.get(0);
+    }
 
 }

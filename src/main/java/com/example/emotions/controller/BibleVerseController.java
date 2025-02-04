@@ -3,6 +3,7 @@ package com.example.emotions.controller;
 import com.example.emotions.models.BibleVerse;
 import com.example.emotions.models.Emotions;
 import com.example.emotions.repository.BibleVerseRepository;
+import com.example.emotions.service.BibleVerseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,14 +12,19 @@ import java.util.List;
 @RequestMapping("/verses")
 public class BibleVerseController {
 
-    private final BibleVerseRepository bibleVerseRepository;
+    private final BibleVerseService service;
 
-    public BibleVerseController(BibleVerseRepository bibleVerseRepository) {
-        this.bibleVerseRepository = bibleVerseRepository;
+    public BibleVerseController(BibleVerseService service) {
+        this.service = service;
     }
 
     @GetMapping("/search")
     public List<BibleVerse> searchByEmotion(@RequestParam String emotion) {
-        return bibleVerseRepository.findByEmotion(Emotions.valueOf(emotion.toUpperCase()));
+        return service.getVersesByEmotion(Emotions.valueOf(emotion.toUpperCase()));
+    }
+    @GetMapping("/random")
+    public BibleVerse getRandomVerse(@RequestParam String emotion) {
+
+        return service.getRandomVerseByEmotion(Emotions.valueOf(emotion.toUpperCase()));
     }
 }

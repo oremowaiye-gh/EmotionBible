@@ -15,14 +15,19 @@ public class BibleVerse {
     private Emotions emotion;
 
     @Column(nullable = false)
+    private String reference;
+
+    @Column(nullable = false)
     private String verse;
 
     public BibleVerse() {
     }
 
-    public BibleVerse(Emotions emotion, String verse) {
-        this.emotion = emotion;
+    public BibleVerse(Long id,String reference, String verse,Emotions emotion) {
+        this.id = id;
+        this.reference = reference;
         this.verse = verse;
+        this.emotion = emotion;
     }
 
     public Emotions getEmotion() {
@@ -30,6 +35,13 @@ public class BibleVerse {
     }
     public void setEmotion(Emotions emotion) {
         this.emotion = emotion;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public String getVerse() {

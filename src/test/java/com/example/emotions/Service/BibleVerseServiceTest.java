@@ -1,4 +1,4 @@
-package com.example.emotions.controller.service;
+package com.example.emotions.Service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -58,6 +58,18 @@ public class BibleVerseServiceTest {
 
         assertTrue(verses.isEmpty());
         verify(repository, times(1)).findByEmotion(Emotions.SADNESS);
+    }
+
+    @Test
+    void testGetRandomVerseByEmotion() {
+        when(repository.findRandomByEmotion(Emotions.JOY)).thenReturn(List.of(verse1, verse3));
+
+        BibleVerse verse = service.getRandomVerseByEmotion(Emotions.JOY);
+
+        assertNotNull(verse);
+        assertTrue(verse.getReference().equals("Philippians 4:4") || verse.getReference().equals("Romans 14:17"));
+
+        verify(repository, times(1)).findRandomByEmotion(Emotions.JOY);
     }
 
 }

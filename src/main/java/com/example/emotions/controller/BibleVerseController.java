@@ -4,6 +4,7 @@ import com.example.emotions.models.BibleVerse;
 import com.example.emotions.models.Emotions;
 import com.example.emotions.repository.BibleVerseRepository;
 import com.example.emotions.service.BibleVerseService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,4 +28,8 @@ public class BibleVerseController {
 
         return service.getRandomVerseByEmotion(Emotions.valueOf(emotion.toUpperCase()));
     }
+
+
+
+
 }

@@ -7,10 +7,7 @@ import com.example.emotions.service.BibleVerseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -117,4 +114,10 @@ public class HomeController {
         model.addAttribute("favourites", favourites);
         return "favourites";
     }
+    @PostMapping("/favourites/remove")
+    public String removeFromFavorites(@RequestParam Long verseId) {
+        service.removeFromFavourites(verseId);
+        return "redirect:/favourites";
+    }
+
 }

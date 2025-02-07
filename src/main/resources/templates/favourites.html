@@ -10,11 +10,13 @@
         <h2>Favourite Verses</h2>
         <div th:if="${not #lists.isEmpty(favourites)}">
             <ul>
+
                 <li th:each="verse : ${favourites}">
                     <p th:text="${verse.verse} + ' - ' + ${verse.reference}"></p>
-                    <form th:action="@{/favourites/delete/{id}(id=${verse.id})}" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                    <form th:action="@{/favourites/remove}" method="post">
+                        <input type="hidden" name="verseId" th:value="${verse.id}">
+
+                        <button type="submit" class="btn btn-danger">Remove From Favourites</button>
                     </form>
                 </li>
             </ul>
@@ -22,7 +24,7 @@
         <div th:if="${#lists.isEmpty(favourites)}">
             <p>No favourite verses found.</p>
         </div>
-        <a href="/" class="btn btn-primary">Home</a>
+        <a href="/" class="btn btn-primary">🏠 Home</a>
     </div>
 </body>
 </html>

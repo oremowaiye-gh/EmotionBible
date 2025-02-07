@@ -19,17 +19,12 @@ public class BibleVerseService {
         this.repository = repository;
     }
 
-//    public List<BibleVerse> getAllVerses() {
-//        return (List<BibleVerse>) repository.findAll();
-//    }
 
     public List<BibleVerse> getVersesByEmotion(Emotions emotion) {
         return repository.findByEmotion(emotion);
     }
 
-//    public BibleVerse addBibleVerse(BibleVerse bibleVerse) {
-//        return repository.save(bibleVerse);
-//    }
+
     public BibleVerse getRandomVerseByEmotion(Emotions emotion) {
         List<BibleVerse> verses = repository.findRandomByEmotion(emotion);
         return verses.get(0);
@@ -38,6 +33,11 @@ public class BibleVerseService {
         bibleVerse.setFavourite(1);
         return repository.save(bibleVerse);
     }
+    public void removeFromFavourites(Long id) {
+        BibleVerse verse = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid verse Id:" + id));
+        verse.setFavourite(0);
+        repository.save(verse);
+    }
 
 
 
@@ -45,6 +45,8 @@ public class BibleVerseService {
     public List<BibleVerse> getFavoriteVerses() {
         return repository.findByFavourite(1);
     }
+
+
 
 
 }

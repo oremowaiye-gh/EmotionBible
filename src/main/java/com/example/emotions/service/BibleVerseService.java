@@ -12,27 +12,39 @@ import java.util.List;
 @Service
 public class BibleVerseService {
 
-    private BibleVerseRepository repository;
+    private final BibleVerseRepository repository;
 
     @Autowired
     public BibleVerseService(BibleVerseRepository repository) {
         this.repository = repository;
     }
 
-    public List<BibleVerse> getAllVerses() {
-        return (List<BibleVerse>) repository.findAll();
-    }
+//    public List<BibleVerse> getAllVerses() {
+//        return (List<BibleVerse>) repository.findAll();
+//    }
 
     public List<BibleVerse> getVersesByEmotion(Emotions emotion) {
         return repository.findByEmotion(emotion);
     }
 
-    public BibleVerse addBibleVerse(BibleVerse bibleVerse) {
-        return repository.save(bibleVerse);
-    }
+//    public BibleVerse addBibleVerse(BibleVerse bibleVerse) {
+//        return repository.save(bibleVerse);
+//    }
     public BibleVerse getRandomVerseByEmotion(Emotions emotion) {
         List<BibleVerse> verses = repository.findRandomByEmotion(emotion);
         return verses.get(0);
     }
+    public BibleVerse saveToFavourites(BibleVerse bibleVerse) {
+        bibleVerse.setFavourite(1);
+        return repository.save(bibleVerse);
+    }
+
+
+
+
+    public List<BibleVerse> getFavoriteVerses() {
+        return repository.findByFavourite(1);
+    }
+
 
 }

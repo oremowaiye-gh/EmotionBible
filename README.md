@@ -1,6 +1,7 @@
 # Emotion Bible App
 
-The Emotion Bible App is a Spring Boot application that provides Bible verses based on different emotions. Users can search for verses by emotion, get random verses, and manage their favorite verses.
+The Emotion Bible App is a Spring Boot application that provides Bible verses based on different 
+emotions. Users can search for verses by emotion, get random verses, and manage their favorite verses.
 
 ## Features
 
@@ -51,7 +52,7 @@ spring.jpa.database-platform=org.hibernate.community.dialect.SQLiteDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=com.example.emotions.config.CustomSQLiteDialect
 
-
+```
 ## Usage
 
 Endpoints:
@@ -68,10 +69,11 @@ To get a random Bible verse for the emotion "joy", navigate to:
 
 http://localhost:8080/random?emotion=joy
 
+
 ## Images
 
-![Home Page](resources/images/home.png)
-![Search by Emotion](images/search.png)
-![Favorites](images/favorites.png)
-![Add to Favorites](images/add.png)
-![Remove from Favorites](images/remove.png)
+![Home Page](src/main/resources/images/home.png)
+![Search by Emotion](src/main/resources/images/search.png)
+![Results Page](src/main/resources/images/results.png)
+![Add to Favorites](src/main/resources/images/favourites.png)
+![Remove from Favorites](src/main/resources/images/remove.png)

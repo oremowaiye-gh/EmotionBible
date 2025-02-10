@@ -19,7 +19,8 @@ public class EmotionBibleApp {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.sqlite.JDBC");
-        dataSource.setUrl("jdbc:sqlite:C:/Users/oluwaseun.mowaiye/Documents/EmotionBible/src/main/resources/emotionbible.db");
+//        dataSource.setUrl("jdbc:sqlite:C:/Users/oluwaseun.mowaiye/Documents/EmotionBible/src/main/resources/emotionbible.db");
+        dataSource.setUrl("jdbc:sqlite:src/main/resources/emotionbible.db");
         return dataSource;
     }
 

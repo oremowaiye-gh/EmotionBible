@@ -18,6 +18,3 @@ public interface BibleVerseRepository extends JpaRepository<BibleVerse, Long> {
 
     List<BibleVerse> findByFavourite(int favorite);
     }
-
-
-

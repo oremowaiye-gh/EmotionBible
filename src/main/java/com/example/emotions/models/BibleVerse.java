@@ -42,17 +42,21 @@ public class BibleVerse {
     }
 
     public Emotions getEmotion() {
+
         return emotion;
     }
 
     public void setEmotion(Emotions emotion) {
+
         this.emotion = emotion;
     }
     public String getReference() {
+
         return reference;
     }
 
     public void setReference(String reference) {
+
         this.reference = reference;
     }
     public String getVerse() {

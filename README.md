@@ -67,7 +67,7 @@ Endpoints:
 Example
 To get a random Bible verse for the emotion "joy", navigate to:
 
-http://localhost:8080/random?emotion=joy
+(http://localhost:8080/getVerse?emotion=JOY)
 
 
 ## Images

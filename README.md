@@ -30,7 +30,7 @@ emotions. Users can search for verses by emotion, get random verses, and manage 
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/oremowaiye/emotion-bible-app.git
+   git clone https://github.com/oremowaiye/EmotionBible.git
    cd emotion-bible-app
 2. Run the application:  
    mvn spring-boot:run
@@ -65,7 +65,8 @@ Endpoints:
 Example
 To get a random Bible verse for the emotion "joy", navigate to:
 
-http://localhost:8080/random?emotion=joy
+(http://localhost:8080/getVerse?emotion=JOY)
+
 
 
 ## Images

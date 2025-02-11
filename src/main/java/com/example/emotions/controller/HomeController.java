@@ -25,25 +25,20 @@ public class HomeController {
         this.repository = repository;
     }
 
-    private static final Map<String, Emotions> SIMILAR_EMOTIONS = new HashMap<>() {{
-        for (String s : Arrays.asList("HAPPY", "CONTENT", "EXCITED", "JOYFUL")) {
-            put(s, Emotions.JOY);
-        }
+    private static final Map<String, Emotions> SIMILAR_EMOTIONS = new HashMap<>();
 
-        for (String s : Arrays.asList("AFRAID", "SCARED")) {
-            put(s, Emotions.FEAR);
-        }
+    static {
+        SIMILAR_EMOTIONS.put("HAPPY", Emotions.JOY);
+        SIMILAR_EMOTIONS.put("SAD", Emotions.SADNESS);
+        SIMILAR_EMOTIONS.put("AFRAID", Emotions.FEAR);
+        SIMILAR_EMOTIONS.put("WORRIED", Emotions.ANXIOUS);
+        SIMILAR_EMOTIONS.put("LONELY", Emotions.ALONE);
+        SIMILAR_EMOTIONS.put("DEPRESSED", Emotions.SADNESS);
+        SIMILAR_EMOTIONS.put("SCARED", Emotions.FEAR);
+        SIMILAR_EMOTIONS.put("NERVOUS", Emotions.ANXIOUS);
+        SIMILAR_EMOTIONS.put("ISOLATED", Emotions.ALONE);
+    }
 
-        for (String s : Arrays.asList("WORRIED", "WORRY", "NERVOUS")) {
-            put(s, Emotions.ANXIOUS);
-        }
-        for (String s : Arrays.asList("DEPRESSED", "HEARTBROKEN")) {
-            put(s, Emotions.SADNESS);
-        }
-        for (String s : Arrays.asList("LONELY", "ISOLATED"))
-            put(s, Emotions.ALONE);
-
-    }};
 
     @GetMapping("/")
     public String home(Model model) {

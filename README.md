@@ -32,9 +32,7 @@ emotions. Users can search for verses by emotion, get random verses, and manage 
    ```sh
    git clone https://github.com/oremowaiye/emotion-bible-app.git
    cd emotion-bible-app
-2. Build the project using Maven:  
-   mvn clean install
-3.  Run the application:  
+2. Run the application:  
    mvn spring-boot:run
 
 
